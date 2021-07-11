@@ -2,12 +2,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "lint:eslint": "eslint --ext .js,.ts,.jsx,.tsx --ignore-path .gitignore --cache .",
     "lint:prettier": "prettier --ignore-path .gitignore --write .",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "build": "tsc && vite build",
     "serve": "vite preview"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint --ignore-path .gitignore --cache --fix",
+    "*.{js,ts,jsx,tsx,css,md,json,yml}": "prettier --ignore-path .gitignore --write"
   },
   "dependencies": {
     "react": "^17.0.0",
@@ -26,6 +31,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",
     "typescript": "^4.3.2",
     "vite": "^2.4.0"
